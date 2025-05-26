@@ -1,3 +1,4 @@
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,43 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# content_scheduler
+
+A simplified content scheduling Laravel application to create, schedule, and publish posts across multiple social platforms.
+
+## Features
+
+- User registration and login (Laravel Sanctum)
+- Post CRUD with platform selection
+- Scheduling posts with status (draft, scheduled, published)
+- Platform management
+- Dashboard with analytics
+- Mock publishing process
+
+## Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/content-scheduler.git
+   cd content-scheduler
+Install dependencies:
+
+composer install
+npm install
+npm run dev
+
+Setup your .env file:
+
+cp .env.example .env
+php artisan key:generate
+
+Configure your database in .env file.
+
+Run migrations and seeders:
+
+php artisan migrate --seed
+
+to run command which publish scheduled posts 
+ php artisan posts:publish-due
+admin credentials : admin@admin.com , password
