@@ -4,6 +4,9 @@ namespace App\Http\Requests\Api\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 class StorePostRequest extends FormRequest
 {
     /**
@@ -29,5 +32,14 @@ class StorePostRequest extends FormRequest
             'platforms' => 'required|array|min:1',
             'platforms.*' => 'exists:platforms,id',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $response = [
+            'status' => false,
+            'message' => $validator->errors()->first(),
+        ];
+        throw new HttpResponseException(response()->json($response, 422));
     }
 }

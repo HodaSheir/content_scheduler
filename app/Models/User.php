@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Platform::class)->withTimestamps();
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
